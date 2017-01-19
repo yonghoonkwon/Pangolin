@@ -28,7 +28,8 @@
 #pragma once
 
 #include <pangolin/video/video.h>
-#include <pangolin/log/packetstream.h>
+//#include <pangolin/log/packetstream.h>
+#include "pangolin/log/iPacketStream.hpp"
 
 namespace pangolin
 {
@@ -75,7 +76,9 @@ private:
 protected:
     int FindSource();
 
-    PacketStreamReader reader;
+    iPacketStream reader;
+    SyncTime realtime_sync;
+
     size_t size_bytes;
     std::vector<StreamInfo> streams;
     json::value device_properties;
